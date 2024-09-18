@@ -5,7 +5,7 @@ SRCFOLDER	= srcs
 LIB			= libftprintf.a
 
 SRCS = ft_printf.c ${SRCFOLDER}/ft_putchar_fd.c ${SRCFOLDER}/ft_putstr_fd.c \
-		${SRCFOLDER}/ft_putnbr_fd.c
+		${SRCFOLDER}/ft_putnbr_fd.c ${SRCFOLDER}/ft_convert_fd.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -28,4 +28,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re tester

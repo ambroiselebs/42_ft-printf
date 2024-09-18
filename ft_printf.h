@@ -21,6 +21,8 @@ int		ft_printf(const char *s, ...);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(const char *str, int fd);
 int		ft_putnbr_fd(int nb, int fd);
+int		ft_print_hex_fd_maj(int nb, int fd);
+int		ft_print_hex_fd_min(int nb, int fd);
 
 void	ft_parser(char c, int *counter, va_list *args);
 

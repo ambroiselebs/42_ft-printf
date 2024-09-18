@@ -22,6 +22,10 @@ void	ft_parser(char c, int *counter, va_list *args)
 		*counter += ft_putnbr_fd(va_arg(*args, int), 1);
 	if (c == 'u')
 		*counter += ft_putnbr_fd(va_arg(*args, unsigned int), 1);
+	if (c == 'x')
+		*counter += ft_print_hex_fd_min(va_arg(*args, int), 1);
+	if (c == 'X')
+		*counter += ft_print_hex_fd_maj(va_arg(*args, int), 1);
 	if (c == '%')
 		*counter += ft_putchar_fd('%', 1);
 }
@@ -44,10 +48,13 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (counter);
 }
-
+/*
 int	main(void)
 {
 	ft_printf("je suis %s, J'ai %i ans\n\n", "Ambroise", 18);
 	ft_printf("-> Compte %d\n", ft_printf("Hello world\n"));
+
+	ft_printf("\n\nNombre 16 : %x", -42);
+	printf("\nNombre 16 : %x\n", -42);
 	return (0);
-}
+}*/
