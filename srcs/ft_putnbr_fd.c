@@ -14,24 +14,27 @@
 
 int	ft_putnbr_fd(int nb, int fd)
 {
-	int	counter;
+	int		counter;
+	char	c;
 
 	counter = 0;
+	if (nb == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return (11);
+	}
 	if (nb < 0)
 	{
 		write(fd, "-", 1);
 		nb = -nb;
+		counter++;
 	}
 	if (nb >= 10)
 	{
-		counter++;
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		counter += ft_putnbr_fd(nb / 10, fd);
 	}
-	else
-	{
-		counter++;
-		ft_putchar_fd(nb + '0', fd);
-	}
+	c = (nb % 10) + '0';
+	write(fd, &c, 1);
+	counter++;
 	return (counter);
 }

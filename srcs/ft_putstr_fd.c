@@ -17,6 +17,11 @@ int	ft_putstr_fd(const char *str, int fd)
 	int	counter;
 
 	counter = 0;
+	if (!str)
+	{
+		write(fd, "(null)", 6);
+		return (6);
+	}
 	while (str[counter])
 		write(fd, &str[counter++], 1);
 	return (counter);
